@@ -530,7 +530,7 @@ if query and (search_clicked or st.session_state.current_query == query):
             top_k_dense=20,
             top_k_bm25=20,
             top_k_fused=20,
-            top_k_rerank=10,
+            top_k_rerank=5,
         )
     elapsed = time.time() - start_time
 
