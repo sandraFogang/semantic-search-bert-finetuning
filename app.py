@@ -49,7 +49,7 @@ st.set_page_config(
 CUSTOM_CSS = """
 <style>
     .block-container {
-        padding-top: 3rem !important;
+        padding-top: 2rem !important;
         padding-bottom: 1rem !important;
         max-width: 1200px;
     }
@@ -428,7 +428,7 @@ with st.sidebar:
 
     st.markdown("### ⚙️ Paramètres")
     debug_mode = st.toggle("Mode debug", value=False)
-    top_k_display = st.slider("Sources à afficher", 1, 10, 5)
+    top_k_display = st.slider("Sources à afficher", 1, 5, 3)
 
     st.divider()
 
@@ -527,9 +527,9 @@ if query and (search_clicked or st.session_state.current_query == query):
     with st.spinner("🔍 Recherche dans 20 000 passages..."):
         raw_result = system.search_and_answer(
             query,
-            top_k_dense=30,
-            top_k_bm25=30,
-            top_k_fused=30,
+            top_k_dense=20,
+            top_k_bm25=20,
+            top_k_fused=20,
             top_k_rerank=10,
         )
     elapsed = time.time() - start_time
